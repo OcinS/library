@@ -41,6 +41,12 @@ function getRadioValue() {
 }
 
 const modal = document.querySelector('.modal');
+
+const openButton = document.querySelector('.openButton');
+openButton.addEventListener('click', function() {
+    modal.style.scale = `1`;
+});
+
 const closeButton = document.querySelector('.closeButton');
 closeButton.addEventListener('click', closeModal);
 
@@ -51,5 +57,5 @@ function closeModal() {
     pagesValue = ``;
     readValue = ``;
 
-    modal.style.transform = `scale(0)`;
+    modal.style.scale = `0`;
 }
