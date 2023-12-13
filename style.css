@@ -1,51 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,900&display=swap');
+
+:root {
+    /* Spacing or Layout */
+    --border-radius: 10px;
+    --form-gap: 20px;
+    --form-padding: 25px;
+    --form-input-padding: 10px;
+    --form-margin: 20px;
+
+    /* Colors */
+    --black-color: #1D1E2C;
+    --light-blue: #06BCC1;
+    --mint-green-white: #DEFFFC;
+    --red-color: #D282A6;
+
+    /* Font Sizes */
+    --primary-size: 2rem;
+    --secondary-size: 1.75rem;
+    --tertiary-size: 1.50rem;
+    --general-size: 1rem;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: all .50s ease;
 }
 
 body {
     min-height: 100vh;
+    position: relative;
+}
+
+/* Modal and Form Styles */
+
+.modal {
+    position: fixed;
+    background: rgb(6,188,193);
+    background: linear-gradient(45deg, rgba(6,188,193,0.6980042016806722) 25%, rgba(150,224,114,0.7008053221288515) 75%);
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;
+    scale: 1;
+}
+
+.closeButton {
+    position: absolute;
+    top: 35px;
+    right: 560px;
+    background-color: var(--red-color);
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.closeButton:hover {
+    opacity: 0.8;
+}
+
+.mdi-exit-to-app {
+    font-size: var(--secondary-size);
+    color: var(--mint-green-white);
 }
 
 form {
-    border: 1px solid black;
-    padding: 20px;
+    background-color: var(--mint-green-white);
+    border-radius: var(--border-radius);
+    padding: var(--form-padding);
+    width: 300px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
 .form-section {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: var(--form-gap);
+    margin-bottom: var(--form-margin);
+}
+
+.form-section h3 {
+    font-weight: 700;
+    font-size: var(--tertiary-size);
+    text-align: center;
 }
 
 .form-radio {
     display: flex;
-    gap: 20px;
+    gap: var(--form-gap);
 }
 
 .form-buttons {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: var(--form-gap);
+}
+
+label, .form-section p {
+    font-size: var(--general-size);
+    font-weight: 600;
 }
 
 input[type="text"], input[type="number"] {
     height: 30px;
-    width: 300px;
+    width: 100%;
     border: none;
     outline: 1px solid black;
-    padding: 0 10px;
+    border-radius: var(--border-radius);
+    padding: 0 var(--form-input-padding);
 }
 
-button {
-    padding: 10px 0;
-    width: 100px;
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: var(--form-gap);
+}
+
+input[type="radio"] {
+    accent-color: var(--light-blue);
+    width: var(--general-size);
+    height: var(--general-size);
+}
+
+#addBookButton, #resetButton {
+    padding: var(--form-input-padding) 0;
+    width: 110px;
     border: none;
-    border-radius: 15px;
+    font-size: var(--general-size);
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    color: var(--mint-green-white);
+    cursor: pointer;
+}
+
+#addBookButton:hover, #resetButton:hover {
+    opacity: 0.8;
+}
+
+#addBookButton {
+    background-color: var(--light-blue);
+}
+
+#resetButton {
+    background-color: var(--red-color);
 }

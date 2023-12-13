@@ -5,48 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Library - Nico Sison</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.3.67/css/materialdesignicons.min.css">
 </head>
 <body>
 
-    <form>
-        <div class="form-section">
-            <label for="title">Book Title</label>
-            <input name="title" id="title" type="text" placeholder="title">
+    <h1>Test</h1>
+
+    <div class="modal">
+
+        <div class="closeButton">
+            <span class="mdi mdi-exit-to-app"></span>
         </div>
 
-        <div class="form-section">
-            <label for="author">Book Author</label>
-            <input name="author" id="author" type="text" placeholder="author">
-        </div>
-        
-        <div class="form-section">
-            <label for="pages">Book Pages</label>
-            <input type="number" name="pages" id="pages">
-        </div>
-
-        <div class="form-section">
-            <p>Have your read this Book?</p>
-
-            <div class="form-radio">
-                <div class="radio-option">
-                    <input type="radio" name="read-status" id="Yes" value="Yes">
-                    <label for="Yes">Yes</label>
-                </div>
-    
-                <div class="radio-option">
-                    <input type="radio" name="read-status" id="No" value="No">
-                    <label for="No">No</label>
-                </div>
+        <form>
+            <div class="form-section">
+                <h3>Book Details</h3>
+            </div>
+            <div class="form-section">
+                <label for="title">Book Title</label>
+                <input name="title" id="title" type="text" placeholder="Insert Book Title" required>
             </div>
 
-        </div>
+            <div class="form-section">
+                <label for="author">Book Author</label>
+                <input name="author" id="author" type="text" placeholder="Insert Book Author" required>
+            </div>
+            
+            <div class="form-section">
+                <label for="pages">Book Pages</label>
+                <input type="number" name="pages" id="pages" placeholder="Insert the number of pages" required>
+            </div>
 
-        <div class="form-buttons">
-            <button type="button" id="addBookButton">ADD BOOK</button>
-            <button type="reset" id="resetButton">RESET</button>
-        </div>
+            <div class="form-section">
+                <p>Have your read this Book?</p>
 
-    </form>
+                <div class="form-radio">
+                    <div class="radio-option">
+                        <input type="radio" name="read-status" id="Yes" value="Yes" required>
+                        <label for="Yes">Yes</label>
+                    </div>
+        
+                    <div class="radio-option">
+                        <input type="radio" name="read-status" id="No" value="No">
+                        <label for="No">No</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-buttons">
+                <button type="button" id="addBookButton">ADD BOOK</button>
+                <button type="reset" id="resetButton">RESET</button>
+            </div>
+
+        </form>
+
+    </div>
 
     <script src="./index.js"></script>
     
