@@ -1,11 +1,28 @@
-function book(title, author, pages, read) {
+const myLibrary = [];
+
+function Book (title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function() {
-        return `${title} by ${author}, ${pages} pages, ${read}`;
-    };
 };
 
-const theHobbit = new book('The Hobbit', 'J.R.R. Tolkien', 295, 'not ready yet');
+
+
+
+let readValue = document.getElementsByName(`#title`);
+
+let buttonAddBook = document.querySelector(`#addBookButton`);
+
+buttonAddBook.addEventListener(`click`, addBookToMyLibrary())
+
+
+function addBookToMyLibrary() {
+
+    let titleValue = document.querySelector(`#title`).value;
+    let authorValue = document.querySelector(`#author`).value;
+    let pagesValue = document.querySelector(`#pages`).value;
+
+    myLibrary.push(new Book(titleValue, authorValue, pagesValue, readValue));
+
+};
