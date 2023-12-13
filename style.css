@@ -52,7 +52,7 @@ body {
 }
 
 .closeButton {
-    position: absolute;
+    position: fixed;
     top: 35px;
     right: 560px;
     background-color: var(--red-color);

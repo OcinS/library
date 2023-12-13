@@ -23,9 +23,10 @@ function addBookToMyLibrary() {
     authorValue = document.querySelector(`#author`).value;
     pagesValue = document.querySelector(`#pages`).value;
     getRadioValue();
-
     
     myLibrary.push(new Book(titleValue, authorValue, pagesValue, readValue));
+
+    document.querySelector(`form`).reset();
 
 };
 
@@ -37,4 +38,18 @@ function getRadioValue() {
             readValue = radioValue[i].value;
         }
     }
+}
+
+const modal = document.querySelector('.modal');
+const closeButton = document.querySelector('.closeButton');
+closeButton.addEventListener('click', closeModal);
+
+function closeModal() {
+
+    titleValue = ``;
+    authorValue = ``;
+    pagesValue = ``;
+    readValue = ``;
+
+    modal.style.transform = `scale(0)`;
 }
