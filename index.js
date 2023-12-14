@@ -27,8 +27,11 @@ function addBookToMyLibrary() {
     titleValue = document.querySelector(`#title`).value;
     authorValue = document.querySelector(`#author`).value;
     pagesValue = document.querySelector(`#pages`).value;
+
     getRadioValue();
+
     dataIndex++;
+
     createCardElement();
     
     myLibrary.push(new Book(titleValue, authorValue, pagesValue, readValue));
@@ -40,12 +43,14 @@ function addBookToMyLibrary() {
 
     // This will get the Value of the Radio Buttons: Yes or No
     function getRadioValue() {
+
         let radioValue = document.getElementsByName(`read-status`);
         for (let i = 0; i < radioValue.length; i++) {
             if (radioValue[i].checked) {
                 readValue = radioValue[i].value;
             }
         }
+
     }
 
     // This will Create Card Element in the Main Container
@@ -85,13 +90,11 @@ function addBookToMyLibrary() {
 
         MAINCONTAINER.appendChild(CARD);
 
-        console.log()
-
         // Feature to remove the Book in the Main Container Display and myLibrary Array
         REMOVEBOOKDIV.addEventListener('click', function(e) {
 
-            const test = e.target.parentNode.parentNode.parentNode.children;
-            const index = Array.from(test).indexOf(CARD);
+            const cardArray = e.target.parentNode.parentNode.parentNode.children;
+            const index = Array.from(cardArray).indexOf(CARD);
 
             MAINCONTAINER.removeChild(CARD);
             myLibrary.splice(index,1);

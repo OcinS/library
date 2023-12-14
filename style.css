@@ -137,6 +137,7 @@ footer {
 
 .footer.container p {
     font-size: var(--tertiary-size);
+    font-weight: 600;
     color: var(--mint-green-white);
     text-wrap: balance;
 }
