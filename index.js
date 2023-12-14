@@ -15,6 +15,7 @@ let titleValue = ``;
 let authorValue = ``;
 let pagesValue = ``;
 let readValue = ``;
+let dataIndex = -1;
 
 
 // Feature to Add a Book to the Library
@@ -27,6 +28,7 @@ function addBookToMyLibrary() {
     authorValue = document.querySelector(`#author`).value;
     pagesValue = document.querySelector(`#pages`).value;
     getRadioValue();
+    dataIndex++;
     createCardElement();
     
     myLibrary.push(new Book(titleValue, authorValue, pagesValue, readValue));
@@ -75,12 +77,26 @@ function addBookToMyLibrary() {
 
                     const REMOVEBOOKICON = document.createElement(`span`);
                     REMOVEBOOKICON.classList = `mdi mdi-book-remove`;
+                    REMOVEBOOKICON.setAttribute(`data-index`, `${dataIndex}`)
 
                 REMOVEBOOKDIV.appendChild(REMOVEBOOKICON);
 
             CARD.append(BOOKTITLEDIV,BOOKAUTHORDIV,BOOKPAGESDIV,BOOKSTATUSDIV,REMOVEBOOKDIV);
 
         MAINCONTAINER.appendChild(CARD);
+
+        console.log()
+
+        // Feature to remove the Book in the Main Container Display and myLibrary Array
+        REMOVEBOOKDIV.addEventListener('click', function(e) {
+
+            const test = e.target.parentNode.parentNode.parentNode.children;
+            const index = Array.from(test).indexOf(CARD);
+
+            MAINCONTAINER.removeChild(CARD);
+            myLibrary.splice(index,1);
+        });
+
     }
 
 
