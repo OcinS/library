@@ -69,6 +69,7 @@ header {
     border: 4px solid var(--black-color);
     display: grid;
     gap: 20px;
+    place-items: center;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
@@ -85,6 +86,7 @@ header {
     align-items: start;
     gap: 10px;
     color: var(--mint-green-white);
+    position: relative;
 }
 
 .book-title {
@@ -96,6 +98,18 @@ header {
 .book-author, .book-pages, .book-status {
     font-size: var(--general-size);
     font-weight: 600;
+}
+
+.remove-book {
+    position: absolute;
+    top: 13%;
+    right: 3%;
+    cursor: pointer;
+}
+
+.mdi-book-remove {
+    font-size: var(--tertiary-size);
+    color: var(--red-color);
 }
 
 /* Open Button Styles */

@@ -18,8 +18,8 @@ let readValue = ``;
 
 
 // Feature to Add a Book to the Library
-const buttonAddBook = document.querySelector(`#addBookButton`);
-buttonAddBook.addEventListener(`click`, addBookToMyLibrary)
+const ADDBOOKBUTTON = document.querySelector(`#addBookButton`);
+ADDBOOKBUTTON.addEventListener(`click`, addBookToMyLibrary)
 
 function addBookToMyLibrary() {
     
@@ -27,11 +27,13 @@ function addBookToMyLibrary() {
     authorValue = document.querySelector(`#author`).value;
     pagesValue = document.querySelector(`#pages`).value;
     getRadioValue();
+    createCardElement();
     
     myLibrary.push(new Book(titleValue, authorValue, pagesValue, readValue));
 
     document.querySelector(`form`).reset();
 
+    closeModal();
 };
 
     // This will get the Value of the Radio Buttons: Yes or No
@@ -44,19 +46,56 @@ function addBookToMyLibrary() {
         }
     }
 
+    // This will Create Card Element in the Main Container
+    function createCardElement() {
+
+        const MAINCONTAINER = document.querySelector(`.main.container`);
+
+            const CARD = document.createElement(`div`);
+            CARD.className = `card`;
+
+                const BOOKTITLEDIV = document.createElement(`div`);
+                BOOKTITLEDIV.className = `book-title`;
+                BOOKTITLEDIV.innerText = `${titleValue}`
+
+                const BOOKAUTHORDIV = document.createElement(`div`);
+                BOOKAUTHORDIV.className = `book-author`;
+                BOOKAUTHORDIV.innerText = `${authorValue}`
+
+                const BOOKPAGESDIV = document.createElement(`div`);
+                BOOKPAGESDIV.className = `book-pages`;
+                BOOKPAGESDIV.innerText = `${pagesValue}`
+
+                const BOOKSTATUSDIV = document.createElement(`div`);
+                BOOKSTATUSDIV.className = `book-status`;
+                BOOKSTATUSDIV.innerText = `${readValue}`
+
+                const REMOVEBOOKDIV = document.createElement(`div`);
+                REMOVEBOOKDIV.className = `remove-book`;
+
+                    const REMOVEBOOKICON = document.createElement(`span`);
+                    REMOVEBOOKICON.classList = `mdi mdi-book-remove`;
+
+                REMOVEBOOKDIV.appendChild(REMOVEBOOKICON);
+
+            CARD.append(BOOKTITLEDIV,BOOKAUTHORDIV,BOOKPAGESDIV,BOOKSTATUSDIV,REMOVEBOOKDIV);
+
+        MAINCONTAINER.appendChild(CARD);
+    }
+
 
 // Feature to make the Modal Open and Close
-const modal = document.querySelector('.modal');
+const MODAL = document.querySelector('.modal');
 
     // Open Modal
-    const openButton = document.querySelector('.openButton');
-    openButton.addEventListener('click', function() {
-        modal.style.scale = `1`;
+    const OPENBUTTON = document.querySelector('.openButton');
+    OPENBUTTON.addEventListener('click', function() {
+        MODAL.style.scale = `1`;
     });
 
     // Close Modal
-    const closeButton = document.querySelector('.closeButton');
-    closeButton.addEventListener('click', closeModal);
+    const CLOSEBUTTON = document.querySelector('.closeButton');
+    CLOSEBUTTON.addEventListener('click', closeModal);
 
     function closeModal() {
 
@@ -65,6 +104,7 @@ const modal = document.querySelector('.modal');
         pagesValue = ``;
         readValue = ``;
 
-        modal.style.scale = `0`;
-    }
+        document.querySelector(`form`).reset();
 
+        MODAL.style.scale = `0`;
+    }
