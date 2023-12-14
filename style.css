@@ -35,7 +35,7 @@ body {
     position: relative;
     background-color: var(--mint-green-white);
     display: grid;
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: 100px 1fr 100px;
     gap: 30px;
 }
 
@@ -44,26 +44,36 @@ body {
 }
 
 /* Header Styles */
+
 header {
     border-bottom-style: solid;
     border-bottom-width: 4px;
     border-color: var(--gradient-color);
     box-shadow: rgba(29, 30, 44, 0.3) 0px 13px 27px -5px, rgba(29, 30, 44, 0.3) 0px 8px 16px -8px;
+    display: flex;
+    align-items: center;
 }
 
 .header.container {
     display: flex;
     align-items: center;
-    margin-top: 20px;
 }
 
-.header.container h1 {
+.header.container a {
     color: var(--black-color);
+    font-size: var(--primary-size);
+    text-decoration: none;
     font-weight: 900;
 }
 
+.header.container a:hover {
+    color: var(--light-blue);
+}
+
 /* Main Styles */
+
 .main.container {
+    height: 100%;
     padding: 20px;
     border-radius: var(--border-radius);
     border: 4px solid var(--black-color);
@@ -74,7 +84,6 @@ header {
 }
 
 .card {
-    /* Update the width once display set to Grid */
     width: 100%;
     height: 100%;
     background-color: var(--black-color);
@@ -102,7 +111,7 @@ header {
 
 .remove-book {
     position: absolute;
-    top: 13%;
+    top: 8%;
     right: 3%;
     cursor: pointer;
 }
@@ -110,6 +119,35 @@ header {
 .mdi-book-remove {
     font-size: var(--tertiary-size);
     color: var(--red-color);
+}
+
+/* Footer Styles */
+
+footer {
+    background-color: var(--black-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer.container {
+    display: flex;
+    align-items: center;
+}
+
+.footer.container p {
+    font-size: var(--tertiary-size);
+    color: var(--mint-green-white);
+    text-wrap: balance;
+}
+
+.footer.container p a {
+    text-decoration: none;
+    color: var(--mint-green-white);
+}
+
+.footer.container p a:hover {
+    color: var(--light-blue);
 }
 
 /* Open Button Styles */
