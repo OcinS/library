@@ -15,16 +15,16 @@ let titleValue = ``;
 let authorValue = ``;
 let pagesValue = ``;
 let readValue = ``;
-let dataIndex = -1;
 
 
-// Feature to Add a Book to the Library
+// Executes once the Form is submitted
 const FORM = document.querySelector(`form`);
 FORM.addEventListener('submit', function(e) {
     e.preventDefault();
     addBookToMyLibrary();
 });
 
+//Feature to Add a Book to the Library
 function addBookToMyLibrary() {
     
     titleValue = document.querySelector(`#title`).value;
@@ -32,8 +32,6 @@ function addBookToMyLibrary() {
     pagesValue = document.querySelector(`#pages`).value;
 
     getRadioValue();
-
-    dataIndex++;
 
     createCardElement();
     
@@ -66,26 +64,36 @@ function addBookToMyLibrary() {
 
                 const BOOKTITLEDIV = document.createElement(`div`);
                 BOOKTITLEDIV.className = `book-title`;
-                BOOKTITLEDIV.innerText = `${titleValue}`
+                BOOKTITLEDIV.innerText = `${titleValue}`;
 
                 const BOOKAUTHORDIV = document.createElement(`div`);
                 BOOKAUTHORDIV.className = `book-author`;
-                BOOKAUTHORDIV.innerText = `${authorValue}`
+                BOOKAUTHORDIV.innerText = `${authorValue}`;
 
                 const BOOKPAGESDIV = document.createElement(`div`);
                 BOOKPAGESDIV.className = `book-pages`;
-                BOOKPAGESDIV.innerText = `${pagesValue}`
+                BOOKPAGESDIV.innerText = `${pagesValue}`;
 
                 const BOOKSTATUSDIV = document.createElement(`div`);
                 BOOKSTATUSDIV.className = `book-status`;
-                BOOKSTATUSDIV.innerText = `${readValue}`
+
+                    const TOGGLEBUTTON = document.createElement(`button`);
+                    TOGGLEBUTTON.className = `read-status`;
+                    TOGGLEBUTTON.textContent = `${readValue}`;
+
+                    if (readValue === `Read`) {
+                        TOGGLEBUTTON.style.background = `#06BCC1`;
+                    } else {
+                        TOGGLEBUTTON.style.background = `#D282A6`;
+                    }
+                
+                BOOKSTATUSDIV.appendChild(TOGGLEBUTTON);
 
                 const REMOVEBOOKDIV = document.createElement(`div`);
                 REMOVEBOOKDIV.className = `remove-book`;
 
                     const REMOVEBOOKICON = document.createElement(`span`);
                     REMOVEBOOKICON.classList = `mdi mdi-book-remove`;
-                    REMOVEBOOKICON.setAttribute(`data-index`, `${dataIndex}`)
 
                 REMOVEBOOKDIV.appendChild(REMOVEBOOKICON);
 
@@ -101,6 +109,24 @@ function addBookToMyLibrary() {
 
             MAINCONTAINER.removeChild(CARD);
             myLibrary.splice(index,1);
+        });
+
+        // Feature to update the Read Status in the Main Container Display and myLibrary Array
+        TOGGLEBUTTON.addEventListener('click', function(e) {
+
+            const cardArray = e.target.parentNode.parentNode.parentNode.children;
+            const index = Array.from(cardArray).indexOf(CARD);
+
+            if (e.target.textContent === `Read`) {
+                TOGGLEBUTTON.textContent = `Not Read`;
+                myLibrary[index].read = `Not Read`;
+                TOGGLEBUTTON.style.background = `#D282A6`;
+            } else {
+                TOGGLEBUTTON.textContent = `Read`;
+                myLibrary[index].read = `Read`;
+                TOGGLEBUTTON.style.background = `#06BCC1`;
+            }
+            
         });
 
     }

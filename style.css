@@ -109,6 +109,27 @@ header {
     font-weight: 600;
 }
 
+.book-status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+    /* Toggle Button Styles */
+
+.read-status {
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    padding: 5px 15px;
+    border: none;
+    font-weight: 600;
+    font-size: var(--general-size);
+    color: var(--mint-green-white);
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+}
+
 .remove-book {
     position: absolute;
     top: 8%;
