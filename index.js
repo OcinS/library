@@ -19,8 +19,11 @@ let dataIndex = -1;
 
 
 // Feature to Add a Book to the Library
-const ADDBOOKBUTTON = document.querySelector(`#addBookButton`);
-ADDBOOKBUTTON.addEventListener(`click`, addBookToMyLibrary)
+const FORM = document.querySelector(`form`);
+FORM.addEventListener('submit', function(e) {
+    e.preventDefault();
+    addBookToMyLibrary();
+});
 
 function addBookToMyLibrary() {
     

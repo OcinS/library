@@ -272,7 +272,7 @@ input[type="radio"] {
     height: var(--general-size);
 }
 
-#addBookButton, #resetButton {
+.addBookButton, .resetButton {
     padding: var(--form-input-padding) 0;
     width: 110px;
     border: none;
@@ -283,14 +283,14 @@ input[type="radio"] {
     cursor: pointer;
 }
 
-#addBookButton:hover, #resetButton:hover {
+.addBookButton:hover, .resetButton:hover {
     opacity: 0.8;
 }
 
-#addBookButton {
+.addBookButton {
     background-color: var(--light-blue);
 }
 
-#resetButton {
+.resetButton {
     background-color: var(--red-color);
 }
